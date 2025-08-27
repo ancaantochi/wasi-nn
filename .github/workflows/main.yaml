@@ -56,9 +56,9 @@ jobs:
       - name: Run tests on native architecture
         working-directory: rust
         run: cargo test
-      - name: Build on wasm32-wasi
+      - name: Build on wasm32-wasip1
         working-directory: rust
-        run: cargo build --target=wasm32-wasi
+        run: cargo build --target=wasm32-wasip1
       - name: Check dry-run publish to crates.io
         working-directory: rust
         run: cargo publish --dry-run
@@ -69,9 +69,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: rustup target add wasm32-wasip1
-      - name: Build for wasm32-wasi
+      - name: Build for wasm32-wasip1
         working-directory: image2tensor
-        run: cargo build --target=wasm32-wasi
+        run: cargo build --target=wasm32-wasip1
       - name: Check dry-run publish to crates.io
         working-directory: image2tensor
         run: cargo publish --dry-run
